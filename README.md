@@ -39,12 +39,12 @@ Expect the simulation notebooks (`5_1`, `5_2`, `5_4`) to take a long time - appr
 
 `data-NPFOCuS/` contains the gamma-ray burst and simulation inputs:
 
-- `grb171004857.pickle` — the GRB analyzed in section 4.5
+- `grb171004857.pickle`: the GRB analyzed in section 4.5
 - `528653157d4320141.pickle`, `528664172d33464026.pickle`,
-  `528820438d371897.pickle`, `528910872d3934581.pickle` — additional GRB records
+  `528820438d371897.pickle`, `528910872d3934581.pickle`: additional GRB records
   used as background for the threshold calibration in section 4.5
-- `081101167_bw_*.csv`, `081122614_bw_*.csv` — binned light curves
-- `simulations.csv` — simulation inputs
+- `081101167_bw_*.csv`, `081122614_bw_*.csv`: light curves
+- `simulations.csv`: simulation inputs
 
 The well-log data is downloaded in `3_2_well_log.ipynb` from the [Turing Change Point Dataset](https://github.com/alan-turing-institute/TCPD)
 (Ó Ruanaidh and Fitzgerald, 1996; Van den Burg and Williams, 2020), and consequently that notebook needs network access on the first run.
