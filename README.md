@@ -14,7 +14,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install gridcp==0.1.0 jupyter matplotlib numpy pandas
 ```
 
-The `gridcp` version 0.1.0 is the first version published on PyPI, fixed to ensure reproducibility.
+The `gridcp` version 0.1.0 is the first version published on PyPI, fixed to ensure reproducibility. Note that installing **gridcp** requires Python 3.10 or newer.
 
 ## Reproducing the results
 
