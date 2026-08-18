@@ -56,4 +56,4 @@ files used in the paper, kept to avoid having to do a full rerun.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
