@@ -52,8 +52,7 @@ The well-log data is downloaded in `3_2_well_log.ipynb` from the [Turing Change 
 ## Outputs
 
 The plots produced by the notebooks go into `figures/`. These are the exact
-files used in the paper, kept so the repository documents the published output
-without requiring a full rerun.
+files used in the paper, kept to avoid having to do a full rerun.
 
 ## License
 
