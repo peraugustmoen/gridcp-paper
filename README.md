@@ -23,11 +23,11 @@ The table below shows what each notebook produces, and where in the paper the co
 | Notebook | Section | Produces |
 |---|---|---|
 | `3_1_meancusum_runtime.ipynb` | 3.1 | CUSUM runtime for 10k observations at p=1000 |
-| `3_2_well_log.ipynb` | 3.2 | `figures/well_log_stacked.pdf` |
-| `4_5_GRB_detection.ipynb` | 4.5 | `figures/GRB_171004857_detection.pdf` |
-| `5_1_FAR_simulation.ipynb` | 5.1 | `figures/fa_rate.pdf` |
-| `5_2_ARL_simulation.ipynb` | 5.2 | `figures/arl_dist_sim.pdf` |
-| `5_4_highd_mean_simulation.ipynb` | 5.4 | High-dimensional Gaussian study: `figures/highd_mean_delay.pdf`, `figures/highd_runtime.pdf` |
+| `3_2_well_log.ipynb` | 3.2 | Well-log alarm times and penalized score |
+| `4_5_GRB_detection.ipynb` | 4.5 | Poisson GLR and NPFOCuS detections on GRB 171004857 |
+| `5_1_FAR_simulation.ipynb` | 5.1 | Empirical false alarm rate over stream length |
+| `5_2_ARL_simulation.ipynb` | 5.2 | Run-length distributions against the target ARL |
+| `5_4_highd_mean_simulation.ipynb` | 5.4 | High-dimensional Gaussian study: detection delay and runtime |
 
 ## Exact reproducibility requires `N_JOBS = 18`
 
@@ -48,11 +48,6 @@ Expect the simulation notebooks (`5_1`, `5_2`, `5_4`) to take a long time - appr
 
 The well-log data is downloaded in `3_2_well_log.ipynb` from the [Turing Change Point Dataset](https://github.com/alan-turing-institute/TCPD)
 (Ó Ruanaidh and Fitzgerald, 1996; Van den Burg and Williams, 2020), and consequently that notebook needs network access on the first run.
-
-## Outputs
-
-The plots produced by the notebooks go into `figures/`. These are the exact
-files used in the paper, kept to avoid having to do a full rerun.
 
 ## License
 
