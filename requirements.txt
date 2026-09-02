@@ -1,0 +1,7 @@
+# Packages required to run the notebooks in code_for_paper/.
+# gridcp is fixed at 0.1.0 to ensure reproducibility of the paper's results.
+gridcp==0.1.0
+jupyter==1.1.1
+matplotlib==3.11.1
+numpy==2.5.2
+pandas==3.0.5
