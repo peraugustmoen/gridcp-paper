@@ -878,23 +878,13 @@ def section_5_4_highd_mean_simulation():
     runtime_10k = runtime.loc[runtime["N"] == 10_000, "time_s"].values[0]
     print(f"Time to process the first 10 000 samples: {runtime_10k:.3f} seconds")
 
-
-# ===========================================================================
-# Runner
 # ===========================================================================
 # Each section of the paper is one function call below. Comment out the ones
 # you do not want to run, or run a single section directly from a Python shell:
 #
 #     from replication_materials import section_3_2_well_log
 #     section_3_2_well_log()
-#
-# Approximate runtimes on a modern laptop:
-#     3_1   ~1 minute
-#     3_2   seconds
-#     4_5   ~2 minutes
-#     5_1   ~20 minutes
-#     5_2   ~20 minutes
-#     5_4   ~20 minutes
+
 
 if __name__ == "__main__":
 
