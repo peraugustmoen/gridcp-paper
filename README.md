@@ -4,9 +4,7 @@ Reproduction material for the software paper describing
 [**gridcp**](https://github.com/peraugustmoen/gridcp), a Python package for
 online changepoint detection.
 
-All results are reproduced by `replication_materials.py`. Each figure or timing
-result from the paper corresponds to one `section_*` function, named after the
-section of the paper it reproduces.
+All results are reproduced by `replication_materials.py`. Information on how to set up a virtual environment, download requirements and run the script, follows.
 
 ## Setup
 
