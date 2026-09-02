@@ -1,7 +1,11 @@
-# Packages required to run the notebooks in code_for_paper/.
+# Packages required to run replication_materials.py.
+#
 # gridcp is fixed at 0.1.0 to ensure reproducibility of the paper's results.
+# The remaining packages are given as minimum versions rather than exact pins,
+# so that the environment builds on any Python from 3.10 onwards. No single
+# release of numpy supports that whole range, so exact pins would restrict
+# the supported Python versions.
 gridcp==0.1.0
-jupyter==1.1.1
-matplotlib==3.11.1
-numpy==2.5.2
-pandas==3.0.5
+matplotlib>=3.6
+numpy>=1.23
+pandas>=2.0
