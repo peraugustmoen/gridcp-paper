@@ -1,0 +1,9 @@
+# Packages required to run replication_materials.py.
+#
+# gridcp is fixed at 0.1.0 to ensure reproducibility of the paper's results.
+# The remaining packages are given as minimum versions rather than exact,
+# so that the environment builds on any Python from 3.10 onwards.
+gridcp==0.1.0
+matplotlib>=3.6
+numpy>=1.23
+pandas>=2.0
