@@ -60,6 +60,10 @@ REPO_ROOT = Path(__file__).resolve().parent
 DATA_GRB = REPO_ROOT / "data_grb"
 DATA_WELL_LOG = REPO_ROOT / "data_wellog"
 
+# Figures are written here as PDFs, one per figure in the paper, named after
+# the section function that produces them. Created on first save.
+FIGURES = REPO_ROOT / "figures"
+
 # Number of workers in the parallelized simulation code. Must be 18 to
 # reproduce the exact results from the paper.
 N_JOBS = 18
@@ -75,6 +79,14 @@ def _banner(title):
     print("=" * 78)
     print(title)
     print("=" * 78)
+
+
+def _savefig(fig, name):
+    """Write `fig` to ``figures/<name>.pdf`` and report where it went."""
+    FIGURES.mkdir(exist_ok=True)
+    path = FIGURES / f"{name}.pdf"
+    fig.savefig(path)
+    print(f"Figure saved: {path.relative_to(REPO_ROOT)}")
 
 
 # ===========================================================================
@@ -241,7 +253,7 @@ def section_3_2_well_log():
         fontsize=12,
     )
     plt.tight_layout()
-    plt.show()
+    _savefig(fig2, "3_2_well_log")
 
 
 # ===========================================================================
@@ -285,7 +297,7 @@ def section_4_5_grb_detection():
 
     axes[-1].set_xlabel("Time (MET s)")
     fig.suptitle("All pickle files - total counts", fontsize=12)
-    plt.show()
+    # Not saved: this overview of all pickle files does not appear in the paper.
 
     # -- Defining the score models and calibration --------------------------
     # Thresholds are estimated by simulating null paths from a homogeneous
@@ -477,7 +489,7 @@ def section_4_5_grb_detection():
         ax.set_xlabel("Time")
 
     fig.suptitle("Poisson GLR and NPFOCuS detectors on GRB 171004857", fontsize=13)
-    plt.show()
+    _savefig(fig, "4_5_grb_detection")
 
 
 # ===========================================================================
@@ -555,7 +567,7 @@ def section_5_1_far_simulation():
     ax.set_title("False alarm rate over $T$")
     ax.legend()
     plt.tight_layout()
-    plt.show()
+    _savefig(fig, "5_1_far_simulation")
 
 
 # ===========================================================================
@@ -675,7 +687,7 @@ def section_5_2_arl_simulation():
     axes[0].set_ylabel("Density")
 
     plt.tight_layout()
-    plt.show()
+    _savefig(fig, "5_2_arl_simulation")
 
 
 # ===========================================================================
@@ -817,7 +829,7 @@ def section_5_4_highd_mean_simulation():
 
         axes[0].set_ylabel("Average detection delay")
         fig.tight_layout()
-        plt.show()
+        _savefig(fig, "5_4_highd_mean_delay")
 
     # -- Runtime benchmark (post-JIT) ---------------------------------------
     # Warmup: trigger Numba JIT compilation before timing
@@ -861,7 +873,7 @@ def section_5_4_highd_mean_simulation():
         ax.set_ylabel("Runtime (s)")
         ax.legend()
         fig.tight_layout()
-        plt.show()
+        _savefig(fig, "5_4_highd_mean_runtime")
 
     runtime_10k = runtime.loc[runtime["N"] == 10_000, "time_s"].values[0]
     print(f"Time to process the first 10 000 samples: {runtime_10k:.3f} seconds")
@@ -887,22 +899,31 @@ def section_5_4_highd_mean_simulation():
 if __name__ == "__main__":
 
     # -- Section 3.1: CUSUM runtime for 10k observations at p=1000 ----------
+    a = time.perf_counter()
     section_3_1_meancusum_runtime()
+    print(f"Section 3.1 runtime: {time.perf_counter() - a:.1f} seconds")
 
     # -- Section 3.2: Well-log alarm times and penalized score --------------
+    a = time.perf_counter()
     section_3_2_well_log()
+    print(f"Section 3.2 runtime: {time.perf_counter() - a:.1f} seconds")
 
     # -- Section 4.5: Poisson GLR and NPFOCuS on GRB 171004857 -------------
+    a = time.perf_counter()
     section_4_5_grb_detection()
+    print(f"Section 4.5 runtime: {time.perf_counter() - a:.1f} seconds")
 
     # -- Section 5.1: Empirical false alarm rate over stream length --------
-    # Slow: roughly 20 minutes.
+    a = time.perf_counter()
     section_5_1_far_simulation()
+    print(f"Section 5.1 runtime: {time.perf_counter() - a:.1f} seconds")
 
     # -- Section 5.2: Run-length distributions against the target ARL ------
-    # Slow: roughly 20 minutes.
+    a = time.perf_counter()
     section_5_2_arl_simulation()
+    print(f"Section 5.2 runtime: {time.perf_counter() - a:.1f} seconds")
 
     # -- Section 5.4: High-dimensional Gaussian delay and runtime ----------
-    # Slow: roughly 20 minutes.
+    a = time.perf_counter()
     section_5_4_highd_mean_simulation()
+    print(f"Section 5.4 runtime: {time.perf_counter() - a:.1f} seconds")
